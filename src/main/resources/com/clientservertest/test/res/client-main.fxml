@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2002-2015.
+  -->
+
+<?import javafx.scene.control.*?>
+<?import org.tbee.javafx.scene.layout.fxml.*?>
+<MigPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:id="rootPane"
+        fx:controller="com.clientservertest.test.ClientMainController"
+        layout=""
+        cols="[fill,grow]"
+        rows="[][][][][fill,grow]"
+        prefHeight="300"
+        prefWidth="800"
+        minWidth="800"
+        stylesheets="@skin.css"
+        >
+
+
+    <MigPane layout="ins 0" cols="[]push[][]10::[][]" rows="[]">
+        <Label text="Client" MigPane.cc="spanx 4" styleClass="headline"></Label>
+        <Label text="Implementation:" labelFor="$implementationCombobox"></Label>
+        <ComboBox fx:id="implementationCombobox" MigPane.cc=""></ComboBox>
+        <Label text="Buffer Size"></Label>
+        <Spinner fx:id="bufferSizeSpinner" editable="true" prefWidth="90" MigPane.cc=""></Spinner>
+    </MigPane>
+
+
+    <MigPane MigPane.cc="newline, spanx 5, grow" layout="" cols="[][][][]">
+        <Label text="IP"></Label>
+        <TextField fx:id="tfIP" text="127.0.0.1"></TextField>
+        <Label text="Port"></Label>
+        <TextField fx:id="tfPort" text="22222"></TextField>
+        <Button fx:id="bConnect" text="Connect" onAction="#handleConnect" MigPane.cc=""></Button>
+        <Button fx:id="bDisconnect" text="Disconnect" onAction="#handleDisconnect" MigPane.cc=""></Button>
+    </MigPane>
+
+    <MigPane layout="ins 0" cols="[]" rows="[]" MigPane.cc="newline">
+        <Button text="Test" onAction="#handleTest" MigPane.cc=""></Button>
+        <Button text="GetFile" onAction="#handleGetFile" MigPane.cc=""></Button>
+    </MigPane>
+
+    <ProgressBar fx:id="fileProgress" progress="0" MigPane.cc="newline, spanx 5, grow" maxWidth="10000"></ProgressBar>
+
+    <TextArea fx:id="taLog" MigPane.cc="newline,spanx 5, grow"></TextArea>
+
+</MigPane>

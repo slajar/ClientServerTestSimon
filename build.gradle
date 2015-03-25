@@ -1,0 +1,77 @@
+buildscript {
+  repositories {
+    jcenter();
+    mavenCentral();
+    mavenLocal();
+    maven {
+      url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+  }
+}
+
+apply from: 'javafx.plugin'
+
+task testserver << {
+  println "#### TestServer: AppID: $appID - AppName: $appName"
+
+}
+
+
+repositories {
+  jcenter()
+  mavenLocal();
+  mavenCentral()
+  maven {
+    url "https://oss.sonatype.org/content/repositories/snapshots/"
+  }
+  maven {
+
+  }
+}
+
+dependencies {
+  compile 'commons-io:commons-io:2.4'
+  compile 'com.miglayout:miglayout-core:4.3-SNAPSHOT'
+  compile 'com.miglayout:miglayout-javafx:4.3-SNAPSHOT'
+  compile 'de.root1:simon:1.2.0-SNAPSHOT'
+  compile 'org.apache.mina:mina-core:2.0.9'
+  compile 'org.cojen:dirmi:1.1.4'
+  compile files("libs/jcores-0.9.1.jar")
+  compile 'org.glassfish.tyrus:tyrus-server:1.10'
+  compile 'org.glassfish.tyrus:tyrus-container-grizzly-server:1.10'
+}
+
+task jfxSignJar(overwrite: true) {
+  enabled = false
+}
+
+
+
+javafx {
+  appID = _appID
+  appName = _appName
+  mainClass = _mainClass
+
+  //jvmArgs = ['-XX:+AggressiveOpts', '-XX:CompileThreshold=1']
+  //systemProperties = ['prism.disableRegionCaching': 'true']
+  //arguments = ['-l', '--fast']
+
+  version = "1.0.2"
+  packaging = 'all'
+  signingMode = 'debug'
+  embedLauncher = false
+  debugKey = null
+  releaseKey = null
+  /*
+
+  // deploy/info attributes
+  category = 'Demos'
+  copyright = 'Copyright (c) 2015'
+  description = ''
+  licenseType = ''
+  vendor = ''
+  installSystemWide = false
+  menu = true
+  shortcut = true
+*/
+}

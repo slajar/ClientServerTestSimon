@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2002-2015.
+  -->
+
+<?import javafx.scene.control.*?>
+<?import org.tbee.javafx.scene.layout.fxml.*?>
+<MigPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:id="rootPane"
+        fx:controller="com.clientservertest.test.ServerMainController"
+        layout=""
+        cols="[fill,grow]"
+        rows="[][fill,grow]"
+        prefHeight="300"
+        prefWidth="800"
+        stylesheets="@skin.css"
+        >
+
+    <MigPane layout="ins 0" cols="[][][]push[][]10::[][]" MigPane.cc="">
+        <Label text="Server" MigPane.cc="" styleClass="headline"></Label>
+        <Button fx:id="bConnect" text="Start" onAction="#handleStartServer" MigPane.cc=""></Button>
+        <Button fx:id="bDisconnect" text="Stop" onAction="#handleStopServer" MigPane.cc=""></Button>
+        <Label text="Implementation:" labelFor="$implementationCombobox"></Label>
+        <ComboBox fx:id="implementationCombobox" MigPane.cc=""></ComboBox>
+        <Label text="Buffer Size"></Label>
+        <Spinner fx:id="bufferSizeSpinner" editable="true" prefWidth="90" MigPane.cc=""></Spinner>
+    </MigPane>
+    <Button text="ping all" onAction="#handlePingAll" MigPane.cc="newline"></Button>
+    <TextArea fx:id="taLog" MigPane.cc="spanx 3, grow,newline"></TextArea>
+
+</MigPane>
